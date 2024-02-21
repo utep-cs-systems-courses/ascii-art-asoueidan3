@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include "draw.h" // project-related declarations
+#include "draw.h"
+// project-related declarations
 
 int main() 
 {
@@ -7,7 +8,7 @@ int main()
 
   while (1) { // Infinite while loop
 
-    fputs("Select which shape you want to print (Triangle = t, Square = s, Chars = c) or 'q' to quit\n> ", stdout);
+    fputs("Select which shape you want to print (Triangle = t, Square = s, Chars = c, or Arrow = a) or 'q' to quit\n> ", stdout);
     fflush(stdout);		/* stdout only flushes automatically on \n */
     int c;
     while ((c = getchar()) == '\n'); /* ignore newlines */
@@ -26,8 +27,12 @@ int main()
       break;
     case 'c':
       puts("You selected chars:");
-      for (char c = 'A'; c < 'D'; c++)
-	print_char_11x16(c);
+      for (char c ='A'; c < 'C'; c++)
+	print_char_8x12(c);
+      break;
+    case 'a':
+      puts("You selected arrow:");
+      print_arrow(5,7);
       break;
     case 'q':
       puts("Bye!");
